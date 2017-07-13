@@ -5,17 +5,36 @@
    to watch the assertions pass as you write your code.
 
    Also remember, that the parameter `hand` will be an array, so
-   you'll need to parse through that first before you can start to 
+   you'll need to parse through that first before you can start to
    write your logic.
 */
 
 
-function handValue (hand) {
+function handValue(hand) {
+  let total = 0;
+  console.log(hand);
+  for (var i = 0; i < hand.length; i++) {
 
-
-  return;
+    if (isNaN(hand[i])) {
+      if (hand[i] != 'A') {
+        total += 10;
+      }
+    } else {
+      total += +hand[i];
+    }
+  }
+  for (var i = 0; i < hand.length; i++) {
+    if (hand[i] === 'A') {
+      if (total > 11) {
+        total += 1;
+      } else {
+        total += 11;
+      }
+    }
+  }
+  console.log(total);
+  return total;
 }
-
 
 /* -----  Hints ------
 
